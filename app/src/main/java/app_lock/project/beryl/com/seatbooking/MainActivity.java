@@ -12,7 +12,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements OnSeatSelected {
 
     private static final int COLUMNS = 5;
+    private static final int SIZE = 15;
     private TextView txtSeatSelected;
+    private TextView rateSeatSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +22,17 @@ public class MainActivity extends AppCompatActivity implements OnSeatSelected {
         setContentView(R.layout.activity_main);
 
         txtSeatSelected = (TextView)findViewById(R.id.txt_seat_selected);
+        rateSeatSelected = (TextView)findViewById(R.id.rate_seat_selected);
 
         List<AbstractItem> items = new ArrayList<>();
-        for (int i=0; i<30; i++) {
-
-            if (i%COLUMNS==0 || i%COLUMNS==4) {
+        for (int i=0; i<SIZE; i++) {
+//            if (i%COLUMNS==0 || i%COLUMNS==4) {
                 items.add(new EdgeItem(String.valueOf(i)));
-            } else if (i%COLUMNS==1 || i%COLUMNS==3) {
-                items.add(new CenterItem(String.valueOf(i)));
-            } else {
-                items.add(new EmptyItem(String.valueOf(i)));
-            }
+//            } else if (i%COLUMNS==1 || i%COLUMNS==3) {
+//                items.add(new CenterItem(String.valueOf(i)));
+//            } else {
+//                items.add(new EmptyItem(String.valueOf(i)));
+//            }
         }
 
         GridLayoutManager manager = new GridLayoutManager(this, COLUMNS);
@@ -43,7 +45,8 @@ public class MainActivity extends AppCompatActivity implements OnSeatSelected {
 
     @Override
     public void onSeatSelected(int count) {
-
         txtSeatSelected.setText("Book "+count+" seats");
+        rateSeatSelected.setText("Amount "+count*100);
+
     }
 }

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SeatBooking.iml" filepath="$PROJECT_DIR$/SeatBooking.iml" />
+      <module fileurl="file://C:\Users\Beryl\Desktop\seat_booking\SeatBooking.iml" filepath="C:\Users\Beryl\Desktop\seat_booking\SeatBooking.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Beryl\Desktop\seat_booking\app\app.iml" filepath="C:\Users\Beryl\Desktop\seat_booking\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/seat_booking.iml" filepath="$PROJECT_DIR$/seat_booking.iml" />
     </modules>
   </component>
 </project>

@@ -17,12 +17,14 @@ public class AirplaneAdapter extends SelectableAdapter<RecyclerView.ViewHolder> 
 
         ImageView imgSeat;
         private final ImageView imgSeatSelected;
+        private ImageView imgSeatBooked;
 
 
         public EdgeViewHolder(View itemView) {
             super(itemView);
             imgSeat = (ImageView) itemView.findViewById(R.id.img_seat);
             imgSeatSelected = (ImageView) itemView.findViewById(R.id.img_seat_selected);
+            imgSeatBooked = (ImageView) itemView.findViewById(R.id.img_seat_booked);
 
         }
 
@@ -94,34 +96,32 @@ public class AirplaneAdapter extends SelectableAdapter<RecyclerView.ViewHolder> 
             final CenterItem item = (CenterItem) mItems.get(position);
             CenterViewHolder holder = (CenterViewHolder) viewHolder;
 
-            holder.imgSeat.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    toggleSelection(position);
-                    mOnSeatSelected.onSeatSelected(getSelectedItemCount());
-                }
-            });
+                holder.imgSeat.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        toggleSelection(position);
+                        mOnSeatSelected.onSeatSelected(getSelectedItemCount());
+                    }
+                });
 
-            holder.imgSeatSelected.setVisibility(isSelected(position) ? View.VISIBLE : View.INVISIBLE);
+                holder.imgSeatSelected.setVisibility(View.VISIBLE);
+
         } else if (type == AbstractItem.TYPE_EDGE) {
             final EdgeItem item = (EdgeItem) mItems.get(position);
             EdgeViewHolder holder = (EdgeViewHolder) viewHolder;
 
-
-
-            holder.imgSeat.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    toggleSelection(position);
-                    mOnSeatSelected.onSeatSelected(getSelectedItemCount());
-
-
-                }
-            });
-
-            holder.imgSeatSelected.setVisibility(isSelected(position) ? View.VISIBLE : View.INVISIBLE);
-
+            if (position!=1&&position!=8){
+                holder.imgSeat.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        toggleSelection(position);
+                        mOnSeatSelected.onSeatSelected(getSelectedItemCount());
+                    }
+                });
+                holder.imgSeatSelected.setVisibility(isSelected(position) ? View.VISIBLE : View.INVISIBLE);
+            }else {
+                holder.imgSeatBooked.setVisibility(View.VISIBLE);
+            }
         }
     }
 
